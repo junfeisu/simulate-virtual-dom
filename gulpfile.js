@@ -14,17 +14,17 @@ gulp.task('serve', ['scripts'], function () {
   })
 
   gulp.watch(['source/javascript/*.js'], ['eslint', 'scripts']);
-  gulp.watch(['build/js/*.js', 'index.html', 'example/**']).on('change', browserSync.reload);
+  gulp.watch(['dist/*.js', 'index.html', 'example/**']).on('change', browserSync.reload);
 })
 
 // js处理
 gulp.task('scripts', function () {
   return browserify({
-    entries: './source/javascript/element.js',
+    entries: './source/javascript/index.js',
     debug: true
   })
     .plugin(standalonify, { // 此处会被打包成UMD格式，下面的name就是全部变量的名称
-      name: ['Sjf', 'SjfDataBind']
+      name: ['Vd', 'SjfVd']
     })
     .transform(babelify, {  //此处babel的各配置项格式与.babelrc文件相同
       presets: [

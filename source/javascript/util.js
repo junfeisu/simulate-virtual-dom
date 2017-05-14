@@ -1,6 +1,11 @@
+import diff from './diff'
+
 const util = {
   isArray (arr) {
     return arr instanceof Array
+  },
+  isString (str) {
+    return typeof str === 'string'
   },
   toArray (arrayLike) {
     if (!isArray(arrayLike)) {
